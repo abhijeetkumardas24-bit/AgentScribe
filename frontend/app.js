@@ -161,12 +161,11 @@ form.addEventListener("submit", async (e) => {
   initProgressList();
 
   const nodeIds = new Set(STEPS.map((s) => s.id));
-  const apiUrl = window.location.port === "8000" ? "/generate" : "http://localhost:8000/generate";
 
   let hasError = false;
 
   try {
-    const response = await fetch(apiUrl, {
+    const response = await fetch("/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ topic }),
