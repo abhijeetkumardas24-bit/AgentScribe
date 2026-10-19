@@ -1,0 +1,24 @@
+# Environment configuration
+.env
+.env.*
+!.env.example
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# IDE & editors
+.vscode/
+.idea/

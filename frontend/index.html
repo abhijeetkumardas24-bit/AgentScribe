@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Blog Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Marked & DOMPurify for secure markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="badge">Multi-Agent LangGraph System</div>
+      <h1>AI Blog Generator</h1>
+      <p class="subtitle">Enter a topic to conduct research, organize section briefs, and generate a factual markdown article.</p>
+    </header>
+
+    <main class="main-card">
+      <!-- Input Section -->
+      <form id="generator-form" class="input-section" onsubmit="return false;">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="topic"
+            placeholder="Enter blog topic (e.g. Advancements in Quantum Computing)..."
+            autocomplete="off"
+            required
+          />
+        </div>
+        <button type="submit" id="startBtn" class="generate-btn">
+          <span class="btn-text">Generate</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <!-- Progress Section -->
+      <div id="progress-container" class="progress-container hidden">
+        <h2 class="section-title">Generation Pipeline</h2>
+        <div id="progress-list" class="progress-list"></div>
+      </div>
+
+      <!-- Output Section -->
+      <div id="output-container" class="output-container hidden">
+        <div class="output-header">
+          <h2 class="section-title">Generated Article</h2>
+          <button id="copyBtn" class="copy-btn" title="Copy markdown to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Markdown</span>
+          </button>
+        </div>
+        <div id="output" class="output-content markdown-body"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
